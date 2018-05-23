@@ -32,12 +32,12 @@ import java.util.stream.Collectors;
 
 public class UserSearchController implements Initializable
 {
-    PrivateKey privateKey;
-    String privateKeyLocation = "C:\\GitHub\\PatientClient\\src\\privateKeys\\";
+    private PrivateKey privateKey;
+    private String privateKeyLocation = "C:\\GitHub\\Clinet_newtemp\\src\\privateKeys";
     /* The public key is needed as both an String and publicKey throughout the program. To avoid unnecessary typecasting
      * which if done carelessly might result in padding-errors, there exist an variable for both. */
-    PublicKey publicKey;
-    String publicKeyAsString;
+    private PublicKey publicKey;
+    private String publicKeyAsString;
 
 
     @FXML
@@ -105,7 +105,7 @@ public class UserSearchController implements Initializable
             /* Reads and save the private key of the entered CPR */
             try {
                 /* Retrieves privateKey string from local file and converts it into an private key */
-                BufferedReader bufferedReader = new BufferedReader(Files.newBufferedReader(Paths.get(privateKeyLocation+ cprString +".txt")));
+                BufferedReader bufferedReader = new BufferedReader(Files.newBufferedReader(Paths.get(privateKeyLocation + "\\" + cprString +".txt")));
                 /* Saves the content of the file in privateKeyString */
                 String privateKeyString = bufferedReader.lines().collect(Collectors.joining());
                 System.out.println(privateKeyString);

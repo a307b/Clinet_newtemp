@@ -92,37 +92,6 @@ public class UserViewController implements Initializable
     }
 
     @FXML
-    public void makeJournalButton(ActionEvent event)
-    {
-        try
-        {
-            /* Activates the JournalMakerController scene */
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Design/Journalmaker.fxml"));
-            Parent root1 = fxmlLoader.load();
-
-            /* Passes privateKey, publicKey and publicKeyString to JournalMakerController */
-            JournalMakerController journalMakerController = fxmlLoader.getController();
-            journalMakerController.passPrivateKey(privateKey);
-            journalMakerController.passPublicKey(publicKey);
-            journalMakerController.passPatientPublicKey(publicKeyAsString);
-
-            if (blockList.isEmpty())
-                journalMakerController.passBlockId(null);
-            else
-                journalMakerController.passBlockId(blockList.get(0).id);
-
-            Stage stage = new Stage();
-            stage.setTitle("Journal Maker");
-            stage.setScene(new Scene(root1, 830, 600));
-            stage.show();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     public void handleMouseClick(MouseEvent mouseEvent)
     {
         //System.out.println("clicked on " + jfxViewList.getSelectionModel().getSelectedItem().getText());
