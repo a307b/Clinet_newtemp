@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Patient.Controller.UserViewController">
+    <stylesheets>
+        <URL value="@UserView.css" />
+    </stylesheets>
+    <children>
+        <JFXListView fx:id="jfxViewList" layoutX="14.0" layoutY="36.0" prefHeight="350.0" prefWidth="250.0" onMouseClicked="#handleMouseClick" />
+        <Label layoutX="14.0" layoutY="14.0" text="Patient:" />
+        <Label fx:id="nameOrCPR" layoutX="56.0" layoutY="14.0" text="CPR / Navn" />
+        <JFXButton fx:id="getJournal" layoutX="290.0" layoutY="70.0" onAction="#getJournalButton" prefHeight="25.0" prefWidth="100.0" text="Hent Journal" />
+        <JFXButton fx:id="makeJournal" layoutX="290.0" layoutY="100.0" onAction="#makeJournalButton" prefHeight="25.0" prefWidth="100.0" text="Opret Journal" />
+    </children>
+</AnchorPane>
