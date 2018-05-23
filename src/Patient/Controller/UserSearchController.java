@@ -57,7 +57,7 @@ public class UserSearchController implements Initializable
     public void CPRButtonAction(ActionEvent event)
     {
         String cprString = cprTextField.getText();
-/*
+
         if (cprString.length() != 10)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -67,7 +67,7 @@ public class UserSearchController implements Initializable
             alert.show();
             return;
         }
-*/
+
         if (!cprString.matches("[0-9]+"))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -33,13 +33,11 @@ public class TextVariables {
     private Text departmentNameBold;
     private Text departmentName;
 
-    //I have initialized the variables in a constructor contrary to the other variable classes
-    //since i need to handle the exception created by createFont(StandardFonts.TIMES_BOLD),
-    //and you cannot handle exception when you make variables in a class directly
     public TextVariables(QueryVariables queryVariables) {
         try {
             bold = PdfFontFactory.createFont(StandardFonts.TIMES_BOLD);
 
+            /* Text objects for the header */
             patientNameBold = new Text("Notater for:\n").setFont(bold);
             patientName = new Text(queryVariables.getPatientName());
 

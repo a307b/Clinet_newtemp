@@ -8,23 +8,23 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 
+import java.io.File;
 import java.util.ArrayList;
-
-// Data transfer objects DTO er den type klasser jeg har lavet som kun har variable
-// De bliver beskrevet på clean code side 100 (131 PDF) og formen der har private variabler
-// og getters istedet for public variabler uden getters kaldes bean form.
-// Han siger det er en form som gør Objectiv purister glade, men ellers ikke hjælper på
-// noget så burde vi fjerne gettersene? På den ene side gør de filerne sikre siden vi
-// arbejder med sygehusvæsenet, men hvis getters ikke er nødvendige er de spild af kode
 
 public class JournalGenerator
 {
-    public void makeJournal(String patientName, String CPR, String printDate, String startTDate, String endTDate,
+    public void makeJournal(String saveLocation, String patientName, String CPR, String printDate, String startTDate, String endTDate,
                      String dateWritten, String noteType, String examinationDetails, String diagnose, String interpretedBy,
                      String writtenBy, String authenticatedBy, String hospitalName, String departmentName, String uploadedBy)  {
         try {
             // PDF save location
-            final String savePath = "C:\\Journal\\FremstilletPDF.pdf";
+            final String savePath = "C:\\Journal\\" + saveLocation +".pdf";
+
+            /* Creates directory if it does not exist */
+            File file = new File("C:\\Journal");
+            if(!file.exists()) {
+                file.mkdirs();
+            }
 
             // Initialize PDF document
             PdfDocument pdf = new PdfDocument(new PdfWriter(savePath));
@@ -41,15 +41,6 @@ public class JournalGenerator
             document.setFont(font).setFontSize(standardFont);
 
             //Paragraph objects
-            /*  Pseudo variables for tests
-            QueryVariables queryVariables = new QueryVariables("Bob", "1234567890", "21.3.2018","10.3.2018", "20.3.2018", "19.3.2018", "Røntgennote",
-                    "Undersøgelsen er foretaget som postoperativ kontrol.\n" +
-                            "Der ses sammenholdt medundersøgelsen fra29.07.17, at den tidligere\n" +
-                            "påviste fraktur vedproksimalehøjre femur, nu er behandlet med total\n" +
-                            "hoftealloplastik, som ses i god stilling i alle planer", "postoperativ kontrol",
-                    "Anders Bensen", "Ib Jensen", "Dennis Krieger", "Aalborg Universitetshospital",
-                    "Alb Røntgen Amb", "Alb O-kir sengeafdeling");
-            */
             QueryVariables queryVariables = new QueryVariables(patientName,  CPR,  printDate,  startTDate,  endTDate,
                     dateWritten,  noteType,  examinationDetails,  diagnose,  interpretedBy,
                     writtenBy,  authenticatedBy,  hospitalName,  departmentName,  uploadedBy);

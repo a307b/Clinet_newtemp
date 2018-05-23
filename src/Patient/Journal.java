@@ -37,26 +37,6 @@ public class Journal
         this.uploadedBy = uploadedBy;
     }
 
-    public Journal(String encryptedJournal)
-    {
-        this.patientName = patientName;
-        this.CPR = CPR;
-        this.printDate = printDate;
-        this.startTDate = startTDate;
-        this.endTDate = endTDate;
-        this.dateWritten = dateWritten;
-        this.noteType = noteType;
-        this.examinationDetails = examinationDetails;
-        this.diagnose = diagnose;
-        this.interpretedBy = interpretedBy;
-        this.writtenBy = writtenBy;
-        this.authenticatedBy = authenticatedBy;
-        this.hospitalName = hospitalName;
-        this.departmentName = departmentName;
-        this.uploadedBy = uploadedBy;
-    }
-
-
     @Override
     public String toString()
     {
