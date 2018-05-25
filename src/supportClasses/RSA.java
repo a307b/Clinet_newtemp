@@ -32,9 +32,6 @@ public class RSA {
         String publicKeyString = Base64.encodeBase64String(keyPair.getPublic().getEncoded());
         String privateKeyString = Base64.encodeBase64String(keyPair.getPrivate().getEncoded());
 
-
-
-
         /* Saves private-key locally to privateKeys directory */
         Path filePath = Paths.get("C:\\GitHub\\Patient\\src\\privateKeys\\" + CPR + ".txt");
         BufferedWriter bufferedWriter = null;
@@ -80,7 +77,7 @@ public class RSA {
             Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
             /* Converts string to bytes and encrypts it */
-            byte[] dataToBeEncryptedBytes = dataToBeEncrypted.getBytes("UTF8");
+            byte[] dataToBeEncryptedBytes = dataToBeEncrypted.getBytes();
             byte[] encryptedData = cipher.doFinal(dataToBeEncryptedBytes);
             return encryptedData;
         }catch (Exception e) {
