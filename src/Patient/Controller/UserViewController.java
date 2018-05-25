@@ -102,7 +102,7 @@ public class UserViewController implements Initializable
         Collections.reverse(blockListParam);
 
         for (Block block : blockListParam)
-            jfxViewList.getItems().add(new Label(block.encryptedData));
+            jfxViewList.getItems().add(new Label(block.id));
 
         blockList = blockListParam;
     }
